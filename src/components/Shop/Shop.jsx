@@ -4,22 +4,24 @@ import { addToCart } from '../../redux/actions/cartAction/cartAction';
 import { connect } from 'react-redux';
 
 const Shop = (props) => {
-    const product=[];
+    const {products}= props;
     console.log(props)
     return (
         <div>
-            {product.map(pd => <Product key={pd.id} product={pd}></Product>)}
+            {products.map(pd => <Product addToCart={addToCart} key={pd.id} product={pd}></Product>)}
         </div>
     );
 };
 
 const mapState= (state)=>{
-    cart: state.cart;
-    product: state.product;
+    return {
+    cart: state.cart,
+    products: state.products
+    }
 }
 
-const mapDispatch=()=>{
-    addToCart: addToCart;
+const mapDispatch={
+    addToCart: addToCart
 }
 
 export default connect(mapState, mapDispatch)(Shop);

@@ -6,8 +6,8 @@ function App() {
 
   return (
     <>
-      <Shop></Shop>
       <Cart></Cart>
+      <Shop></Shop>
     </>
   )
 }
